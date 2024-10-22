@@ -1,0 +1,354 @@
+/* Popup styling */
+.container-lg {
+  background-color: #F5F5F5;
+  visibility: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  padding: 30px;
+  box-shadow: 0 2px 60px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for large screens */
+  gap: 20px; /* Space between buttons */
+  justify-items: center;
+  transition: transform 0.8s, top 0.8s;
+  max-width: 90vw; /* Maximum width relative to the viewport */
+  max-height: 90vh; /* Maximum height relative to the viewport */
+  box-sizing: border-box; /* Include padding in width/height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: #3498db #fdf0f0; /* Style scrollbar in Firefox */
+}
+
+/* Scrollbar styling for Webkit (Chrome, Safari) */
+.container-lg::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+.container-lg::-webkit-scrollbar-track {
+  background: #fdf0f0; /* Track color */
+}
+
+.container-lg::-webkit-scrollbar-thumb {
+  background-color: #3498db; /* Thumb color */
+  border-radius: 6px; /* Rounded edges */
+}
+
+/* h2 Styling */
+.container-lg h2 {
+  grid-column: span 3; /* Take up all three columns in the grid */
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #3498db; /* Matches button background */
+  font-family: Arial, sans-serif;
+}
+
+/* Open state */
+.open {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Button styling */
+.container-lg .popup-button {
+  padding: 20px 40px;
+  font-size: 20px;
+  background: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Space between buttons */
+  margin: 10px 0; /* Vertical margin */
+  width: 100%; /* Make buttons take full width */
+  max-width: 100%;
+}
+.container-lg .popup-button:hover {
+  padding: 20px 40px;
+  font-size: 20px;
+  background: #026db5;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-bottom: 15px; /* Space between buttons */
+  margin: 10px 0; /* Vertical margin */
+  width: 100%; /* Make buttons take full width */
+  max-width: 100%;
+}
+
+/* Media queries for responsiveness */
+
+/* For tablets or smaller screens */
+@media screen and (max-width: 900px) {
+  .container-lg {
+    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns */
+    padding: 25px; /* Adjusted padding */
+    gap: 15px;
+    max-width: 95vw; /* Adjust width for tablet */
+    max-height: 85vh; /* Adjust height */
+  }
+
+  .container-lg h2 {
+    grid-column: span 2; /* Take up all two columns */
+    font-size: 18px;
+  }
+
+  .container-lg .popup-button {
+    padding: 18px 35px;
+    font-size: 18px;
+  }
+}
+
+/* For small mobile screens */
+@media screen and (max-width: 600px) {
+  .container-lg {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    padding: 20px; /* Reduced padding */
+    gap: 10px; /* Smaller gap between buttons */
+    max-width: 95vw; /* Limit width to fit within the viewport */
+    height: 85vh; /* Vertical scroll will kick in when content exceeds this */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+
+  .container-lg h2 {
+    grid-column: span 1; /* Take up the single column */
+    font-size: 18px;
+  }
+
+  .container-lg .popup-button {
+    padding: 15px 30px; /* Adjust button padding */
+    font-size: 16px; /* Adjust font size */
+    margin: 10px 0; /* Vertical margin between buttons */
+    width: 100%; /* Ensure buttons fit within container */
+  }
+}
+
+/* For very small mobile screens (e.g., under 400px wide) */
+@media screen and (max-width: 400px) {
+  .container-lg {
+    padding: 15px; /* Further reduce padding */
+    gap: 8px; /* Smaller gap between buttons */
+    max-width: 95vw; /* Limit width */
+    max-height: 80vh; /* Adjust height for smaller screens */
+  }
+
+  .container-lg h2 {
+    font-size: 18px; /* Smaller font size */
+  }
+
+  .container-lg .popup-button {
+    padding: 12px 25px; /* Smaller button padding */
+    font-size: 14px; /* Smaller font for small screens */
+    margin: 8px 0; /* Reduced margin */
+    width: 100%; /* Ensure buttons fit */
+  }
+}
+.close-button {
+  position: absolute;
+  top: 10px;   /* Margin from the top of the container */
+  right: 10px; /* Margin from the right side of the container */
+  padding: 5px;
+  border: none;
+  background-color: transparent; /* Make the background transparent */
+  cursor: pointer;  /* Change cursor to pointer on hover */
+  z-index: 1;  /* Ensure it appears above other elements */
+  font-size: 35px; /* Increased size of the icon */
+  color: #1a044d; /* Icon color */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.close-button:hover {
+  color: #ff0000; /* Change color on hover for better visibility */
+}
+
+.close-button i {
+  margin: 0; /* Optional margin adjustments for the icon */
+}
+
+.col-lg-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Default button styles for larger screens */
+.btn-inside {
+  display: inline-block; /* Or flex if you need a specific layout */
+  margin: 10px; /* Default margin for larger screens */
+  padding: 10px 20px; /* Adjust as needed */
+  background-color: #007bff; /* Example primary color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+/* Hover effect */
+.btn-inside:hover {
+  background-color: #0056b3; /* Darker shade for hover */
+}
+
+/* Media query for mobile view */
+@media (max-width: 768px) {
+  .btn-inside {
+      margin-bottom: 15px; /* Gap between buttons in mobile view */
+      width: 100%; /* Full-width buttons in mobile */
+  }
+}
+/* Styling for the Back to Top button */
+#backToTop {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  display: none;
+  z-index: 9999;
+  width: 50px; /* Equal width and height */
+  height: 50px; /* Equal width and height */
+  border-radius: 50%; /* Perfect circle */
+  padding: 0; /* No extra padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for elevation */
+  font-size: 24px; /* Adjust font size to fit within the button */
+}
+
+/* On hover, change button appearance */
+#backToTop:hover {
+  background-color: #067bc8;
+  transform: scale(1.1);
+}
+
+/* Media query for smaller devices */
+@media (max-width: 575.98px) {
+  #backToTop {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      bottom: 10%;
+      right: 5%;
+  }
+}
+
+/* Media query for very large screens (TVs) */
+@media (min-width: 1200px) {
+  #backToTop {
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      bottom: 2%;
+      right: 2%;
+  }
+}
+.slogan-container {
+  width: 100%;             /* Take up 90% of the screen width */
+  padding: 10px;          /* Reduced padding for less space */
+  background-color: white; /* Background color */
+  border-radius: 8px;     /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Deep box shadow */
+  display: flex;          /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center;    /* Center vertically */
+  text-align: center;     /* Center text */
+  flex-direction: column; /* Stack items vertically */
+  line-height: 1.3;       /* Reduced line height for more compact text */
+  min-height: auto;       /* Allow height to adjust to content */
+}
+
+.slogan-text {
+  font-size: 1.8rem;      /* Slightly smaller font size */
+  margin: 0;              /* Remove default margins */
+  text-align: center;     /* Center the text */      /* Adjust line height for compactness */
+}
+.slogan-highlight {
+  color: #007bff;         /* Text color */
+  text-decoration: underline; /* Underline the text */
+  text-underline-offset: 10px; /* Space between text and underline */
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .slogan-text {
+    font-size: 1.3rem;    /* Smaller font size for mobile */
+    line-height: 1.2;     /* Tighter line height for smaller screens */
+  }
+}
+
+/* Margin between the text and the close button */
+.close-button {
+  margin-bottom: 20px; /* Add margin below the close button */
+}
+p.descript {
+  font-size: calc(0.5rem + 1vw); /* Scale based on viewport width */
+  line-height: 1.4; /* Slightly reduced line height to manage spacing */
+  text-align: justify;
+  word-wrap: break-word;
+  max-width: 100%; /* Prevent overflow */
+  margin-top: 20px; /* Space between the close button and text */
+  -webkit-hyphens: auto; /* Allows text hyphenation to reduce spacing in justified text */
+  hyphens: auto; /* Standard hyphenation property */
+  overflow-wrap: break-word; /* Ensure long words break properly */
+}
+
+/* Remove justification and improve text wrapping for larger mobile screens */
+@media (max-width: 1024px) {
+  p.descript {
+    text-align: left; /* Disable text justification on larger mobile screens */
+    overflow-wrap: break-word; /* Ensure long words break properly */
+    word-wrap: break-word; /* Older browser support for text wrapping */
+    line-height: 1.3; /* Adjust line-height for better readability */
+  }
+}
+
+/* Responsive font size for buttons */
+.btnn {
+  font-size: calc(0.5rem + 1vw); /* Scale font size based on viewport width */
+  padding: 10px 20px;
+  width: 100%; 
+  margin-bottom: 2vh; /* Space below the button */
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 768px) {
+  p.descript {
+    font-size: calc(0.5rem + 1.5vw); /* Slightly smaller font for mobile */
+    -webkit-hyphens: auto; /* Allows text hyphenation to reduce spacing in justified text */
+    overflow-wrap: break-word; /* Ensure long words break properly */
+    word-wrap: break-word; /* Ensure backward compatibility */
+  }
+
+  .btnn {
+    font-size: calc(0.5rem + 1.5vw); /* Adjust button font for mobile */
+    padding: 8px 16px;
+    margin-bottom: 2vh; /* Reduce padding for smaller screens */
+  }
+}
+
+/* Extra control for very small screens */
+@media (max-width: 480px) {
+  p.descript {
+    font-size: 1rem; /* Limit minimum size to fit on very small screens */
+    -webkit-hyphens: auto; /* Allows text hyphenation to reduce spacing in justified text */
+    overflow-wrap: break-word; /* Ensure long words break properly */
+    word-wrap: break-word; /* Ensure backward compatibility */
+  }
+
+  .btnn {
+    font-size: 1rem; /* Limit button text size for very small screens */
+    padding: 6px 12px;
+    margin-bottom: 2vh; /* Further reduce padding */
+  }
+}
+
+
+
+
